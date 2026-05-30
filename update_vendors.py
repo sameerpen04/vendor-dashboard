@@ -4,85 +4,66 @@ import json
 from datetime import datetime
 import pytz
 
-# --- CORE CONFIG ---
+# --- CONFIG ---
 EXCEL_FILE = 'vendor_list.xlsx'
 OUTPUT_FILE = 'index.html'
 
-def get_threat_intel():
-    """Fetches CISA KEV Threat Intel."""
+def get_live_threats():
+    """Fetches real-time CISA KEV data to cross-reference with your vendors."""
     try:
-        r = requests.get("https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json", timeout=5)
+        r = requests.get("https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json", timeout=10)
         return r.json().get('vulnerabilities', [])
     except: return []
 
 def build_final_app():
-    # 1. Load Data
     df = pd.read_excel(EXCEL_FILE)
-    intel = get_threat_intel()
-    risk_stats = df['Inherent Risk Rating'].value_counts().to_dict()
+    threats = get_live_threats()
     
-    # 2. Convert Data for JS
+    # Pre-calculate Impact
+    # Cross-reference threat vendors (simplified match)
+    df['Recent Breach'] = df['Vendor Name'].apply(lambda x: next((t['cveID'] for t in threats if x.lower() in t.get('vendorProject', '').lower()), "None Detected"))
+    
+    # Build JS Data for Drill-Down
     vendors_json = df.to_json(orient='records')
-    intel_json = json.dumps(intel[:15])
-
-    # 3. HTML Construction
+    
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>.tab-content {{ display: none; }}.active {{ display: block; }}</style>
     <script>
         const vendors = {vendors_json};
-        const intel = {intel_json};
-        function openTab(id) {{
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-        }}
-        function searchTable() {{
-            const q = document.getElementById('search').value.toLowerCase();
-            document.querySelectorAll('#regBody tr').forEach(tr => {{
-                tr.style.display = tr.innerText.toLowerCase().includes(q) ? '' : 'none';
-            }});
+        function openDrill(idx) {{
+            const v = vendors[idx];
+            document.getElementById('mBody').innerHTML = `
+                <p><strong>URL:</strong> ${{v['Web URL']}}</p>
+                <p><strong>Scope/Category:</strong> ${{v['Risk Rationale']}}</p>
+                <p><strong>Trust Center:</strong> ${{v['Security / Trust Center URL']}}</p>
+                <p class='text-red-600 font-bold'>Breach Found: ${{v['Recent Breach']}}</p>`;
+            document.getElementById('modal').classList.remove('hidden');
         }}
     </script>
 </head>
-<body class="bg-gray-50 text-gray-900">
-    <nav class="bg-slate-900 p-6 text-white shadow-xl">
-        <h1 class="text-3xl font-bold">CISO TPRM GRC BOARD</h1>
-        <p class="text-xs opacity-75">Updated: {datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M')}</p>
-    </nav>
-
-    <div class="p-8">
-        <div class="flex gap-4 mb-6">
-            <button onclick="openTab('d')" class="bg-indigo-700 text-white px-6 py-2 rounded shadow">Dashboard</button>
-            <button onclick="openTab('r')" class="bg-indigo-700 text-white px-6 py-2 rounded shadow">Register</button>
-            <button onclick="openTab('i')" class="bg-indigo-700 text-white px-6 py-2 rounded shadow">Live Intel</button>
-        </div>
-
-        <div id="d" class="tab-content active bg-white p-6 rounded shadow">
-            <h2 class="text-2xl font-bold mb-4">Risk Distribution</h2>
-            <div class="grid grid-cols-4 gap-4">
-                {"".join([f"<div class='border p-4 rounded bg-gray-50'><strong>{k}</strong><br><span class='text-2xl'>{v}</span></div>" for k, v in risk_stats.items()])}
-            </div>
-        </div>
-
-        <div id="r" class="tab-content bg-white p-6 rounded shadow">
-            <input type="text" id="search" onkeyup="searchTable()" placeholder="Search vendors..." class="w-full border p-2 mb-4 rounded">
-            <table class="w-full text-left">
-                <thead class="bg-gray-100"><tr><th class="p-3">Vendor</th><th class="p-3">Risk</th><th class="p-3">Compliance</th></tr></thead>
-                <tbody id="regBody">
-                    {"".join([f"<tr class='border-b'><td class='p-3'>{r['Vendor Name']}</td><td class='p-3'>{r['Inherent Risk Rating']}</td><td class='p-3'><a href='{r['Security / Trust Center URL']}' target='_blank' class='text-blue-600'>View</a></td></tr>" for _, r in df.iterrows()])}
-                </tbody>
-            </table>
-        </div>
-
-        <div id="i" class="tab-content bg-white p-6 rounded shadow">
-            <h2 class="text-xl font-bold mb-4">Live CISA Threat Feed</h2>
-            <div id="intelBody">{"".join([f"<div class='p-3 border-b'><strong class='text-red-600'>{i['cveID']}</strong> - {i['shortDescription']}</div>" for i in intel])}</div>
+<body class="bg-gray-100 p-8">
+    <h1 class="text-3xl font-bold mb-6">CISO TPRM GRC BOARD</h1>
+    <div class="bg-white p-6 rounded shadow mb-6">
+        <h2 class="text-xl font-bold mb-4">Risk Register (Full Data)</h2>
+        <input type="text" onkeyup="this.nextElementSibling.querySelectorAll('tr').forEach(tr => tr.style.display = tr.innerText.toLowerCase().includes(this.value) ? '' : 'none')" placeholder="Search all columns..." class="w-full border p-2 mb-4">
+        <table class="w-full text-left border-collapse">
+            <thead class="bg-gray-200"><tr><th class="p-3">Vendor</th><th class="p-3">Category</th><th class="p-3">Risk</th><th class="p-3">Breach Status</th><th class="p-3">Action</th></tr></thead>
+            <tbody id="regBody">
+                {"".join([f"<tr class='border-b hover:bg-gray-50'><td class='p-3'>{r['Vendor Name']}</td><td class='p-3'>{r['Risk Rationale']}</td><td class='p-3'>{r['Inherent Risk Rating']}</td><td class='p-3 font-bold text-red-600'>{r['Recent Breach']}</td><td class='p-3'><button onclick='openDrill({i})' class='text-blue-600 underline'>Drill Down</button></td></tr>" for i, r in df.iterrows()])}
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded w-1/2">
+            <h2 class="text-2xl font-bold mb-4">Vendor Details</h2>
+            <div id="mBody"></div>
+            <button onclick="document.getElementById('modal').classList.add('hidden')" class="mt-4 bg-red-600 text-white px-4 py-2 rounded">Close</button>
         </div>
     </div>
-</body>
-</html>"""
+</body></html>"""
     
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f: f.write(html)
 
