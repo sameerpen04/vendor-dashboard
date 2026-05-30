@@ -2,7 +2,7 @@ name: Daily Vendor List Update
 
 on:
   schedule:
-    - cron: '30 3 * * *'
+    - cron: '30 3 * * *' # Matches your morning requirement
   workflow_dispatch: 
 
 permissions:
@@ -21,7 +21,6 @@ jobs:
       with:
         python-version: '3.10'
 
-    # This prevents the ModuleNotFoundError by injecting packages into the runner container upfront
     - name: Install Tools & Dependencies
       run: |
         python -m pip install --upgrade pip
@@ -34,6 +33,14 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        
+        # Add index.html and any other generated reports
         git add index.html daily_log.txt
-        git commit -m "Automated Sync Execution - $(date +'%Y-%m-%d %H:%M:%S') [skip ci]" || exit 0
-        git push origin HEAD:main
+        
+        # Check if there are changes to commit
+        if ! git diff --cached --quiet; then
+          git commit -m "Automated Sync Execution - $(date +'%Y-%m-%d %H:%M:%S')"
+          git push origin HEAD:main
+        else
+          echo "No changes to commit."
+        fi
