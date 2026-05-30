@@ -3,28 +3,1545 @@
     <html lang="en">
     <head>
         <script src="https://cdn.tailwindcss.com"></script>
-        <title>CISO TPRM GRC Board</title>
     </head>
-    <body class="bg-gray-100 p-8">
-        <header class="bg-indigo-900 text-white p-6 rounded-lg shadow-lg mb-8">
-            <h1 class="text-2xl font-bold">CISO TPRM GRC Board</h1>
-            <p class="text-sm opacity-75">Last Updated: 2026-05-30 08:23 PM IST</p>
+    <body class="bg-gray-50 p-8">
+        <header class="bg-slate-900 text-white p-6 rounded-xl shadow-2xl mb-8">
+            <h1 class="text-3xl font-bold">CISO TPRM GRC Board</h1>
+            <p class="text-sm opacity-75">Last Updated: 2026-05-30 20:27 PM IST</p>
         </header>
 
-        <div class="grid grid-cols-4 gap-4 mb-8">
-            <div class="bg-white p-4 rounded shadow">Critical: 20</div>
-            <div class="bg-white p-4 rounded shadow">High: 87</div>
-            <div class="bg-white p-4 rounded shadow">Medium: 64</div>
-            <div class="bg-white p-4 rounded shadow">Low: 82</div>
+        <div class="grid grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow border-l-4 border-red-600">Critical: 20</div>
+            <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orange-500">High: 87</div>
+            <div class="bg-white p-6 rounded-lg shadow border-l-4 border-yellow-400">Medium: 64</div>
+            <div class="bg-white p-6 rounded-lg shadow border-l-4 border-green-500">Low: 82</div>
         </div>
 
-        <div class="bg-white rounded shadow p-6">
-            <div class="flex border-b mb-4">
-                <button class="px-4 py-2 border-b-2 border-indigo-600 font-bold">Dashboard</button>
-                <button class="px-4 py-2 opacity-50">Vendor Risk Register</button>
-                <button class="px-4 py-2 opacity-50">Live Threat Intel</button>
-            </div>
-            </div>
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-bold mb-4">Vendor Risk Register</h2>
+            <table class="w-full text-left">
+                <thead><tr class="bg-gray-100"><th class="p-3">Vendor</th><th class="p-3">Risk</th><th class="p-3">Compliance</th></tr></thead>
+                <tbody>
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">BUSINESS TRAINING ROMANIA</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">WORLD CLASS ROMANIA</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">BENEFIT SEVEN SA</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">FEDEX EXPRESS ROMANIA</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.fedex.com/en-us/trust-center.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">SWISS SOLUTIONS</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">PLUXEE ROMANIA</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.pluxee.com/en/legal/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Skylium Services</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">LIVE SOFTWARE (Dinu Seres)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ISTYLE RETAIL</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Printtech</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Ams Human Resources</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Art Security Romania</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">DIGI Romania (RCS & RDS)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.digi.ro/confidentialitate" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Vodafone Romania</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.vodafone.ro/footer/politica-de-confidentialitate" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Orange Romania</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.orange.ro/politica-de-confidentialitate" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">LRQA (Romania)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.lrqa.com/en/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Grant Thornton (Romania)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.grantthornton.ro/politica-de-confidentialitate/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Ros Contab</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Profile Business Consulting</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">United Business Center (Iulius Town)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Eta 2U</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">CIDP "Tanase V. Iulian"</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Alfa Protect</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Bookster Experience</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.bookster.ro/confidentialitate" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Medicis - Health Services</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Allianz Romania</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.allianz.ro/politica-de-confidentialitate.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Groupama Romania</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.groupama.ro/protectia-datelor-cu-caracter-personal/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">O&B Cleaning Romania</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ING Bank N.V. Amsterdam, Bucharest</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.ing.com/Privacy-Statement.htm" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">AIMS TIMISOARA SRL</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">BT Bank Romania</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.bancatransilvania.ro/protectia-datelor/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">MedLife</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.medlife.ro/politica-de-confidentialitate.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">One Source Solution Romania</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Marabo Office</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Nestor Nestor Diculescu Kingston (NNDKP)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.nndkp.ro/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Nestle Romania</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.nestle.ro/privacy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ATTRIUS DEVELOPMENTS</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">VENDING ZONE</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Dynamic Parcel Distribution (DPD)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.dpd.com/ro/ro/politica-de-confidentialitate/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">MARA TRANSFER AEROPORT</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">PANERACONS I&I (Hotel Mercure)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.accor.com/en/privacy-policy.shtml" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Smart Habitation</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">White Panda</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">UPS Romania</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.ups.com/us/en/support/shipping-support/legal-terms-conditions/privacy-notice.page" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">LINEO PRODUCT DEVELOPMENT</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Altex Romania</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.altex.ro/politica-de-confidentialitate" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">CASA TIMISANA</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ASOCIATIA DINAMIC GRUP</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ASOCIATIA DERZELAS</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">eMAG</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.emag.ro/politica-de-confidentialitate" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Mason Hayes & Curran</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.mhc.ie/privacy-statement" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Arthur Cox</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.arthurcox.com/privacy-statement/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Grant Thornton (Ireland)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.grantthornton.ie/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Tomkins</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Conley Rose, P.C.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.conleyrose.com/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Focus Capital Partners</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Harlay Avocats</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Global Shares (J.P. Morgan)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.globalshares.com/legal/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Vodafone Ireland</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://n.vodafone.ie/privacy.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Starlink (Ireland)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.starlink.com/legal/documents/DOC-1002-53488-53" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">DHL Ireland</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.dhl.com/ie-en/home/footer/privacy-notice.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Microsoft Azure Cloud</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://azure.microsoft.com/en-us/explore/trusted-cloud/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Atlassian</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.atlassian.com/trust" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Adaptavist UK</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.adaptavist.com/legal/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">MongoDB</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.mongodb.com/trust-center" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Anjay Venture Partners LLC</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Apple Store Ireland</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.apple.com/legal/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Elverston LLC</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Avalara</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.avalara.com/us/en/about/security.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Dell Technologies Ireland</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.dell.com/en-us/dt/corporate/privacy-statement.htm" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Dennehy's Health & Fitness</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Aviva Life & Pensions Ireland</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.aviva.ie/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Laya Healthcare</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.layahealthcare.ie/privacypolicy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Gerard and Julia O'Herlihy</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Mark Whitaker</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Hartnett Innovations Limited</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Ibbotson Consulting</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Raymond Hegarty</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">PuzzleFIT AI</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Sage People</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.sage.com/en-gb/legal/privacy-and-security/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">TD Insights</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Skillsoft</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.skillsoft.com/trust" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Super Micro Computer B.V.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.supermicro.com/en/company/privacy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Woodview Meadows</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Mlamb Ireland</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Orrick</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.orrick.com/en/Privacy-Policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Forrester</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.forrester.com/trust/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Morgan McKinley</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.morganmckinley.com/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Visor Limited</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Zoom</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://explore.zoom.us/en/trust/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Tactix Network S.R.L.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Testing Experts</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.testingexperts.com/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Lansdowne Financial Pty Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Gartner U.K. Limited</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.gartner.com/en/about/policies/privacy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Magic Beans UK</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Vodaphone UK</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.vodafone.co.uk/privacy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Amazon AUS</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.amazon.com.au/gp/help/customer/display.html?nodeId=201909010" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ADP LLC</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.adp.com/about-adp/data-privacy.aspx" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ADT Smart & Secure</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.adt.com/about-adt/legal/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Amazon US</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Aramark</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.aramark.com/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Atlantic US</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.atlantic.net/vps-hosting/security/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">AT&T Mobility</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.att.com/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Comcast (Xfinity)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.xfinity.com/privacy/policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Miami Dade Water and Sewer</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.miamidade.gov/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Fedex</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.fedex.com/en-us/trust-center.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">FPL (Florida Power & Light)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.fpl.com/privacy.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Grant Thornton US</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.grantthornton.com/privacy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Rammos Holdco Inc.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Ronoco Cleaning US</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Waste Management (WM)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.wm.com/us/en/privacy-policy.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Walmart</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.walmart.com/help/article/walmart-privacy-policy/3b00a2c5-efc2-4e5a-8f5f-0e7b5f6b6571" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Faculty of Electrical Engineering, U. of Belgrade</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">RPG Pavlovic</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Ambijental d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">UniCredit Bank, Belgrade</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.unicreditbank.rs/rs/stanovnistvo/korisni-alati/zastita-privatnosti.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Grant Thornton BC Consulting d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.grantthornton.rs/pravna-napomena/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Crowe RS Advisory d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.crowe.com/rs/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">GP7, Belgrade</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Navigator Business center d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Tehnomedia d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Wiener Stadtische a.d. Belgrade</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.wiener.rs/zastita-podataka" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Delhaize Serbia d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.maxi.rs/zastitapodataka" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Gigatron d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.gigatron.rs/politika-privatnosti" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">AIGO Business System d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">iStyle Stores d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.istyle.rs/sr/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Uniqa osiguranje a.d.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.uniqa.rs/privatnost" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Triglav osiguranje a.d.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.triglav.rs/zastita-privatnosti" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">IKEA SRBIJA DOO</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.ikea.com/rs/sr/customer-service/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">HackerRank</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.hackerrank.com/trust" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Sinergija hub PR Jovana Randjelovic</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Emergo sport d.o.o. (Fitpass)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Secut d.o.o</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Oblak document solution d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">JP Posta Srbije (Post of Serbia)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.posta.rs/eng/structure/izjava-o-privatnosti.aspx" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">SBB d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.sbb.rs/privatnost" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Spring up alijansa d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Tekmos d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Coffee company d.o.o.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Savooja d.o.o., Beograd (hotel)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Delta hospitality d.o.o., Beograd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">A1 Serbia d.o.o. Belgrade</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.a1.rs/privatnost" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Akton d.o.o., Belgrade</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">AXA SEGUROS GENERALES</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.axa.es/proteccion-datos" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">EIFFAGE ENERGIA SISTEMAS</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.eiffageenergia.es/politica-de-privacidad/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">THE SOURCE TAGGING COMPANY</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">TELEFONICA DE ESPANA, S.A.U</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.telefonica.com/en/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">TALENOM (Sant Cugat Consulting SL)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.talenom.com/en/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">BNP PARIBAS LEASE GROUP (Spain)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://group.bnpparibas/en/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">CANON ESPANA SAU</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.canon.es/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">CATALANA DE SEGURETAT I COMUNICACIONS, SL</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ENDESA ENERGIA, SAU</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.endesa.com/es/politica-de-privacidad" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">FREMAP MUTUA DE ACCIDENTES</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.fremap.es/proteccion-datos" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">FUNDACION MAPFRE</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.fundacionmapfre.org/politica-de-privacidad/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">LACERA SERVICIOS Y MANTENIMIENTO SA</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">MAPFRE VIDA SA</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.mapfre.es/seguridad/privacidad/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">VITALY (PREVING)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.preving.com/politica-de-privacidad/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">SB HOTELS SPAIN SL</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.sbhotels.es/politica-de-privacidad/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">SECURITAS SEGURIDAD ESPANA</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.securitas.com/en/privacy-and-cookies/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">VIVA ACQUA SERVICES SPAIN</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">VODAFONE SPAIN</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.vodafone.es/c/particulares/es/vodafone-y-tu/privacidad-y-seguridad/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">COBEE (by SODEXO)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://cobee.io/legal/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">WELLHUB (formerly Gympass)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://wellhub.com/en-us/legal/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Ashni Foundation</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Amazon India</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.amazon.in/gp/help/customer/display.html?nodeId=201909010" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Computer Exchange Pvt. Ltd (CeX)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://uk.webuy.com/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Concept Information Technologies Pvt Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Electronica Finsmart Solutions Pvt. Ltd.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ICICI Lombard General Insurance Co Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.icicilombard.com/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Mantri Developers Pvt Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.mantridevelopers.com/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Propcare Mall Management (India) Pvt. Ltd.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Snap Marketing Pvt. Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Tata Communications Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.tatacommunications.com/trust/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Tata Teleservices Maharashtra Ltd (TTML)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.tatateleservices.com/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">The Ritz-Carlton, Pune</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.marriott.com/en-us/about/privacy.mi" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Translines India</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Walker Chandiok & Co LLP</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.grantthornton.in/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Aditya Birla Health Insurance Co Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.adityabirlahealthinsurance.com/privacy-policy.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Amadeuss</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Arihant Communication</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Atmosphere 6</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Bake N Cake</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Domino's India</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.dominos.co.in/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Four Points By Sheraton</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.marriott.com/en-us/about/privacy.mi" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Lastcoin Investment And Fund Management</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Mack Soft Tech Pvt Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Metroplus Services Llp</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Michael Page International</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.michaelpage.co.in/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">MSEDCL</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.mahadiscom.in/consumer/index.jsp" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Padmavati Communications</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Paradise Fire And Security Pvt</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Prasa Infocom And Power Solutions</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Ranadey Professionals Services Pvt Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Randstad Technologies Pvt Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.randstad.in/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">RD Custom Awards Private Limited</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">SAR Infotech</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Siddhivinayak Enterprises</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Vodafone Idea Limited (Vi)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.myvi.in/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Walson Services Pvt Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Aj Technologies</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ProSAR EcoTech Pvt Ltd</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Printech Services</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Vedika</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Shree Sainath Sales Corporation</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Articulate 360</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.articulate.com/trust/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Summize</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.summize.com/security" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Tremus Software (Ionut Tudoreanu)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Schwarz Giorgio Alessandro</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Crospoint (John Lionato & Amanda Barry)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Hamby Communications (Lorraine Hamby)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Novastella (Paul Saramet)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Tautu Andrei Petru PFA</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">DOBREAN IOAN MARIAN PFA</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="N/A - Private Individual" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Standard Chartered (Bank India)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.sc.com/en/regulatory-disclosures/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Canara (Bank India)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.canarabank.com/User_page.aspx?othc=Privacy_Policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Liberty General Insurance (India)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.libertyinsurance.in/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">HSBC Ireland</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.hsbc.ie/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Silicon Valley Bank</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.svb.com/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Chase Bank</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.chase.com/digital/resources/privacy-security" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Bank Of Ireland</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.bankofireland.com/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Revolut</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.revolut.com/legal/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">National Australia Bank (NAB)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.nab.com.au/about-us/security/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ERSTE&STEIERMÄRKISCHE BANK d.d.</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.erstebank.hr/hr/zasita-privatnosti" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Banca Sabadell</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.bancsabadell.com/cs/Satellite/SabAtl/en/Particulars/1191344309596/Politica-de-privacitat.html" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Bank of Ireland UK</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.bankofireland.co.uk/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Smartsheet</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.smartsheet.com/trust/security" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">EdX</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.edx.org/edx-privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">10xManagers</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">PatchMyPC</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://patchmypc.com/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ZenCore</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Infilink</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">1Password</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://1password.com/security/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Vanta</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.vanta.com/security" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">KnowBe4</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.knowbe4.com/trust" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Canva</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.canva.com/trust/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Moonlet</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Code2Email</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Happiness Index (by Pluxee)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.happinessindex.com/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">ITPS</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.itps.co.uk/security/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Exalate</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://exalate.com/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">PostHog</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://posthog.com/privacy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Tugela People</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="nan" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Yumuuv</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.yumuuv.com/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Navan (formerly TripActions)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://navan.com/security" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Vercel</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://vercel.com/security" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Kudos</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-green-500 text-white">Low</span></td>
+            <td class="p-3"><a href="https://www.kudos.com/trust/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Cognisys</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.cognisys.co.uk/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Ethico</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.ethico.com/privacy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Lever</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.lever.co/privacy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Goodnotes</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-yellow-400 text-black">Medium</span></td>
+            <td class="p-3"><a href="https://www.goodnotes.com/privacy-policy" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">HubSpot</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-orange-500 text-white">High</span></td>
+            <td class="p-3"><a href="https://www.hubspot.com/trust" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">Silicon Valley Bank</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.svb.com/privacy-policy/" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 font-medium">JPMorgan Chase Bank N.A. (Chase Bank)</td>
+            <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold bg-red-600 text-white">Critical</span></td>
+            <td class="p-3"><a href="https://www.chase.com/digital/resources/privacy-security" target="_blank" class="text-indigo-600 underline">Link</a></td>
+        </tr>
+        </tbody>
+            </table>
+        </div>
     </body>
     </html>
     
