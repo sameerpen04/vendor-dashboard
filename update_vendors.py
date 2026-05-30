@@ -9,7 +9,7 @@ import re
 def fetch_live_threat_intel():
     intel_database = []
     
-    # 1. CISA KEV Feed
+    # CISA KEV Feed Data
     try:
         cisa_url = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
         response = requests.get(cisa_url, timeout=10)
@@ -24,7 +24,7 @@ def fetch_live_threat_intel():
     except Exception:
         pass
 
-    # 2. RSS Security Feeds
+    # RSS Cyber Feeds
     rss_feeds = {
         "BleepingComputer": "https://www.bleepingcomputer.com/feed/",
         "TheCyberwire": "https://thecyberwire.com/feeds/rss.xml"
