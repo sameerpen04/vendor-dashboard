@@ -26,7 +26,6 @@ def build_app():
         vendor_name = row['Vendor Name']
         history = [t for t in cisa_threats if vendor_name.lower() in t.get('vendorProject', '').lower()]
         
-        # Determine 24h breach status
         recent = [h for h in history if datetime.strptime(h.get('dateAdded', '2000-01-01'), '%Y-%m-%d') > cutoff]
         is_unsecured = len(recent) > 0
         
@@ -40,7 +39,14 @@ def build_app():
 
     df[['24h Status', 'StatusColor', 'Nature of Breach', 'Last Reported', 'History']] = df.apply(analyze_vendor, axis=1)
     
-    # HTML Rendering
+    # Generate Table Rows safely outside the f-string
+    rows_html = ""
+    for _, r in df.iterrows():
+        # Clean data for alert to avoid JS syntax errors
+        history_str = str(r['History']).replace('"', "'")
+        row_cols = "".join([f"<td class='p-2 border'>{r[col]}</td>" for col in df.columns if col not in ['StatusColor', 'History']])
+        rows_html += f"<tr>{row_cols}<td class='p-2 border'><button onclick=\"alert('{history_str}')\" class='text-blue-500'>View</button></td></tr>"
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head><script src="https://cdn.tailwindcss.com"></script></head>
@@ -51,14 +57,14 @@ def build_app():
     <div class="bg-white p-4 rounded shadow overflow-x-auto">
         <table class="w-full text-sm border-collapse">
             <thead class="bg-gray-800 text-white"><tr>
-                {''.join([f"<th class='p-2 border'>{col}</th>" for col in list(df.columns) if col not in ['StatusColor', 'History']])}
+                {"".join([f"<th class='p-2 border'>{col}</th>" for col in df.columns if col not in ['StatusColor', 'History']])}
+                <th class='p-2 border'>Action</th>
             </tr></thead>
-            <tbody>
-                {"".join([f"<tr>{''.join([f'<td class=\"p-2 border\">{r[col]}</td>' for col in list(df.columns) if col not in ['StatusColor', 'History']])}<td class='p-2 border'><button onclick='alert(`History: {r['History']}`)' class='text-blue-500'>View</button></td></tr>" for _, r in df.iterrows()])}
-            </tbody>
+            <tbody>{rows_html}</tbody>
         </table>
     </div>
-</div></body></html>"""
+</div>
+</body></html>"""
     
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f: f.write(html)
 
