@@ -24,7 +24,7 @@ jobs:
     - name: Install Tools & Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pandas openpyxl pytz requests
+        pip install pandas openpyxl pytz requests feedparser
 
     - name: Run Python Automation Script
       run: python update_vendors.py
