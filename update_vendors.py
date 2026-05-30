@@ -1,75 +1,53 @@
 import pandas as pd
 import os
-import json
-import pytz
 from datetime import datetime
+import pytz
 
-# --- SETTINGS ---
+# --- CORE SETTINGS ---
 EXCEL_FILE = 'vendor_list.xlsx'
-HTML_FILE = 'index.html'
+OUTPUT_FILE = 'index.html'
 
-def get_html_dashboard(df):
-    """Generates the full dashboard using safe JSON serialization to prevent syntax errors."""
+def build_dashboard():
+    # Load your vendor register
+    df = pd.read_excel(EXCEL_FILE)
     
-    # 1. Prepare data rows (this replaces your previous fragile string concatenation)
-    rows_html = ""
-    for _, row in df.iterrows():
-        # Sanitize data for the JavaScript modal
-        vendor = str(row.get('Vendor Name', 'N/A'))
-        category = str(row.get('Vendor Category', 'N/A'))
-        
-        # Prepare a safe JSON object for the JavaScript function
-        modal_data = json.dumps({"vendor": vendor, "category": category})
-        
-        rows_html += f"""
-        <tr>
-            <td>{vendor}</td>
-            <td>{category}</td>
-            <td>
-                <button class='drill-down-btn' onclick='triggerModal({modal_data})'>
-                    Drill Down 👁️
-                </button>
-            </td>
-        </tr>
-        """
-
-    # 2. Return the full HTML template
-    return f"""
+    # Calculate Risk Counts
+    risk_counts = df['Inherent Risk Rating'].value_counts().to_dict()
+    
+    # Generate HTML with Tailwind CSS
+    html = f"""
     <!DOCTYPE html>
-    <html>
+    <html lang="en">
     <head>
-        <title>Global Supplier Security & Breach Registry</title>
-        <style>
-            body {{ font-family: sans-serif; margin: 40px; background: #f4f7f6; }}
-            table {{ width: 100%; border-collapse: collapse; background: white; }}
-            th, td {{ padding: 12px; border: 1px solid #ddd; }}
-            .drill-down-btn {{ background: #3182ce; color: white; border: none; padding: 5px 10px; cursor: pointer; }}
-        </style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>CISO TPRM GRC Board</title>
     </head>
-    <body>
-        <h1>Global Supplier Security & Breach Registry</h1>
-        <p>Sync Time: {datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S')} IST</p>
-        <table>
-            <tr><th>Vendor</th><th>Category</th><th>Action</th></tr>
-            {rows_html}
-        </table>
-        
-        <script>
-            function triggerModal(data) {{
-                alert("Analyzing details for: " + data.vendor + " (" + data.category + ")");
-            }}
-        </script>
+    <body class="bg-gray-100 p-8">
+        <header class="bg-indigo-900 text-white p-6 rounded-lg shadow-lg mb-8">
+            <h1 class="text-2xl font-bold">CISO TPRM GRC Board</h1>
+            <p class="text-sm opacity-75">Last Updated: {datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%Y-%m-%d %I:%M %p')} IST</p>
+        </header>
+
+        <div class="grid grid-cols-4 gap-4 mb-8">
+            <div class="bg-white p-4 rounded shadow">Critical: {risk_counts.get('Critical', 0)}</div>
+            <div class="bg-white p-4 rounded shadow">High: {risk_counts.get('High', 0)}</div>
+            <div class="bg-white p-4 rounded shadow">Medium: {risk_counts.get('Medium', 0)}</div>
+            <div class="bg-white p-4 rounded shadow">Low: {risk_counts.get('Low', 0)}</div>
+        </div>
+
+        <div class="bg-white rounded shadow p-6">
+            <div class="flex border-b mb-4">
+                <button class="px-4 py-2 border-b-2 border-indigo-600 font-bold">Dashboard</button>
+                <button class="px-4 py-2 opacity-50">Vendor Risk Register</button>
+                <button class="px-4 py-2 opacity-50">Live Threat Intel</button>
+            </div>
+            </div>
     </body>
     </html>
     """
-
-def run():
-    if not os.path.exists(EXCEL_FILE):
-        return
-    df = pd.read_excel(EXCEL_FILE)
-    html = get_html_dashboard(df)
-    with open(HTML_FILE, 'w', encoding='utf-8') as f:
+    
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write(html)
 
 if __name__ == "__main__":
-    run()
+    build_dashboard()
