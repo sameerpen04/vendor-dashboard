@@ -1,0 +1,37 @@
+name: Daily Vendor List Update
+
+on:
+  schedule:
+    # 9:00 AM IST is 3:30 AM UTC. 
+    # We set it slightly earlier (3:30) so it processes right at the hour.
+    - cron: '30 3 * * *'
+  workflow_dispatch: # This allows you to also run it manually anytime with a single click
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+
+    - name: Set up Python Environment
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install Tools (Pandas & Excel Reader)
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas openpyxl pytz
+
+    - name: Run Python Automation Script
+      run: python update_vendors.py
+
+    - name: Save Changes and Update Dashboard
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add index.html daily_log.txt
+        # Only commit if changes actually occurred to avoid errors
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Automated Morning Sync: $(date)" && git push)
