@@ -44,11 +44,11 @@ def fetch_live_threat_intel():
                     summary = item.find('description').text if item.find('description') is not None else ""
                     intel_database.append({
                         'title': title,
-                        'summary': re.sub('<[^<]+?>', '', summary), # Strip accidental HTML tags from RSS summaries
+                        'summary': re.sub('<[^<]+?>', '', summary) if summary else "", # Strip HTML tags safely
                         'source': source_name
                     })
-    except Exception as e:
-        print(f"Warning: Failed to sync {source_name} RSS: {e}")
+        except Exception as e:
+            print(f"Warning: Failed to sync {source_name} RSS: {e}")
         
     return intel_database
 
@@ -72,38 +72,33 @@ def assess_vendor_threat(vendor_name, live_intel):
     
     if any(k in name_upper for k in critical_infra):
         inherent_risk = "Critical"
-        new_risk = "Critical Baseline Risk (Continuous Access Management Monitoring Recommended)"
+        new_risk = "Critical Baseline Risk (Continuous Access Monitoring Recommended)"
     elif any(k in name_upper for k in high_impact):
         inherent_risk = "High"
         new_risk = "High Baseline Risk (Regular Perimeter Audit Cycle Required)"
     else:
-        # Check if the vendor keyword appears anywhere in the local low risk lists
         if any(k in name_upper for k in ["CLEANING", "VENDING", "HOTEL", "CAKE", "BAKE"]):
             inherent_risk = "Low"
             new_risk = "Low Baseline Risk"
 
-    # LIVE SCRAPING CORRELATION LOOP
-    # Normalizes complex company names to isolate their core identifier (e.g., 'Vodafone Ireland' -> 'VODAFONE')
+    # Live Scraping Correlation Loop
     clean_keyword = name_upper.split()[0] if len(name_upper.split()) > 0 else name_upper
     
-    # Ignore short common words to prevent false-positive matches
     if len(clean_keyword) > 3:
         for alert in live_intel:
             alert_text = f"{alert['title']} {alert['summary']}".upper()
             
             if clean_keyword in alert_text:
-                # Upgraded state if an active live threat match is discovered
                 breach_status = "⚠️ ALERT"
                 breach_details = f"<strong>{alert['title']}</strong>: {alert['summary'][:200]}..."
                 css_class = "status-alert"
                 source_reference = alert['source']
                 
-                # Dynamically escalate the residual risk based on live breach notification
                 if inherent_risk == "Low":
                     new_risk = "⚠️ ELEVATED MEDIUM (Active Public Security Incident Disclosed)"
                 else:
                     new_risk = f"🚨 ESCALATED CRITICAL (Active Incident Reported via {source_reference})"
-                break # Incident match found, stop parsing for this specific vendor row
+                break
                 
     return breach_status, breach_details, inherent_risk, new_risk, css_class, source_reference
 
@@ -111,7 +106,7 @@ def run_automation():
     ist = pytz.timezone('Asia/Kolkata')
     current_time = datetime.now(ist).strftime('%Y-%m-%d %I:%M:%S %p')
     
-    excel_file = 'Vendor_List.xlsx'
+    excel_file = 'vendor_list.xlsx'
     log_file = 'daily_log.txt'
     html_file = 'index.html'
     
@@ -119,13 +114,11 @@ def run_automation():
         return
 
     try:
-        # Fetch fresh live open-source cyber intelligence feeds
         live_intel = fetch_live_threat_intel()
         
         df = pd.read_excel(excel_file)
         df = df.dropna(how='all')
         
-        # Locate the Vendor column header
         vendor_col = None
         for col in df.columns:
             if any(k in str(col).upper() for k in ['VENDOR', 'NAME', 'COMPANY']):
@@ -180,61 +173,6 @@ def run_automation():
         .vendor-name {{ font-weight: bold; color: #2c3e50; }}
         .status-badge {{ display: inline-block; padding: 3px 6px; font-weight: bold; font-size: 11px; border-radius: 4px; }}
         .status-clean {{ background-color: #d1e7dd; color: #0f5132; }}
-        .status-alert {{ background-color: #f8d7da; color: #842029; animation: pulse 2s infinite; }}
+        .status-alert {{ background-color: #f8d7da; color: #842029; font-weight: bold; }}
         .risk-badge {{ display: inline-block; padding: 3px 6px; border-radius: 3px; font-weight: 600; font-size: 11px; }}
-        .risk-Critical {{ background-color: #f8d7da; color: #842029; }}
-        .risk-High {{ background-color: #fff3cd; color: #664d03; }}
-        .risk-Medium {{ background-color: #cfe2ff; color: #084298; }}
-        .risk-Low {{ background-color: #e2e3e5; color: #41464b; }}
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>🛡️ CISO Third-Party Risk & Threat Intelligence Center</h1>
-        <p>Enterprise Perimeter Security Operations | Live OSINT Correlated Feed | Last Updated: {current_time} IST</p>
-    </div>
-    
-    <div class="metrics-bar">
-        <div class="metric-card">
-            <div style="font-size: 12px; color: #7f8c8d; text-transform: uppercase;">Total Active Monitored Suppliers</div>
-            <div class="metric-value">{len(df)}</div>
-        </div>
-        <div class="metric-card critical">
-            <div style="font-size: 12px; color: #7f8c8d; text-transform: uppercase;">Live 24h Compromise Warnings</div>
-            <div class="metric-value" style="color: {'#e74c3c' if alert_count > 0 else '#27ae60'};">{alert_count}</div>
-        </div>
-    </div>
-
-    <table>
-        <thead>
-            <tr>
-                <th style="width: 22%;">Third-Party Legal Identity</th>
-                <th style="width: 12%;">24h Security Status</th>
-                <th style="width: 31%;">Threat Analysis / Compromise Indicators</th>
-                <th style="width: 10%;">Inherent Risk</th>
-                <th style="width: 15%;">Residual Risk Profile</th>
-                <th style="width: 10%;">Intel Source</th>
-            </tr>
-        </thead>
-        <tbody>
-            {table_rows}
-        </tbody>
-    </table>
-</body>
-</html>"""
-        
-        with open(html_file, 'w', encoding="utf-8") as f:
-            f.write(html_content)
-            
-        with open(log_file, 'a') as f:
-            f.write(f"[{current_time}] SUCCESS: Live OSINT scan executed. Found {alert_count} active perimeter threats.\n")
-            
-        print("CISO Dashboard successfully updated via live scraping.")
-
-    except Exception as e:
-        with open(log_file, 'a') as f:
-            f.write(f"[{current_time}] FAILED: {str(e)}\n")
-        print(f"Error encountered: {e}")
-
-if __name__ == "__main__":
-    run_automation()
+        .risk-Critical {{ background-color: #f8d7da
