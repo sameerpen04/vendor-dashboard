@@ -8,66 +8,68 @@ from datetime import datetime
 EXCEL_FILE = 'vendor_list.xlsx'
 HTML_FILE = 'index.html'
 
-def generate_clean_html(df):
-    """Generates the dashboard HTML without fragile inline escaping."""
+def get_html_dashboard(df):
+    """Generates the full dashboard using safe JSON serialization to prevent syntax errors."""
     
-    # Header logic
-    ist = pytz.timezone('Asia/Kolkata')
-    sync_time = datetime.now(ist).strftime('%Y-%m-%d %I:%M:%S %p')
-    
-    # Generate rows for the tables
+    # 1. Prepare data rows (this replaces your previous fragile string concatenation)
     rows_html = ""
     for _, row in df.iterrows():
-        # Sanitize variables for JS safely
+        # Sanitize data for the JavaScript modal
         vendor = str(row.get('Vendor Name', 'N/A'))
-        # Using json.dumps makes it impossible to break the JS string with quotes/backslashes
-        js_data = json.dumps({"vendor": vendor})
+        category = str(row.get('Vendor Category', 'N/A'))
+        
+        # Prepare a safe JSON object for the JavaScript function
+        modal_data = json.dumps({"vendor": vendor, "category": category})
         
         rows_html += f"""
         <tr>
             <td>{vendor}</td>
-            <td>{row.get('Vendor Category', 'N/A')}</td>
+            <td>{category}</td>
             <td>
-                <button onclick='alert({js_data})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({modal_data})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         """
 
-    # Return the full template
+    # 2. Return the full HTML template
     return f"""
     <!DOCTYPE html>
     <html>
-    <head><title>Registry Dashboard</title></head>
+    <head>
+        <title>Global Supplier Security & Breach Registry</title>
+        <style>
+            body {{ font-family: sans-serif; margin: 40px; background: #f4f7f6; }}
+            table {{ width: 100%; border-collapse: collapse; background: white; }}
+            th, td {{ padding: 12px; border: 1px solid #ddd; }}
+            .drill-down-btn {{ background: #3182ce; color: white; border: none; padding: 5px 10px; cursor: pointer; }}
+        </style>
+    </head>
     <body>
         <h1>Global Supplier Security & Breach Registry</h1>
-        <p>Sync Time: {sync_time} IST</p>
-        <table border="1">
+        <p>Sync Time: {datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S')} IST</p>
+        <table>
             <tr><th>Vendor</th><th>Category</th><th>Action</th></tr>
             {rows_html}
         </table>
+        
+        <script>
+            function triggerModal(data) {{
+                alert("Analyzing details for: " + data.vendor + " (" + data.category + ")");
+            }}
+        </script>
     </body>
     </html>
     """
 
-def run_dry_run():
-    # 1. Validate environment
+def run():
     if not os.path.exists(EXCEL_FILE):
-        print(f"Error: {EXCEL_FILE} not found.")
         return
-
-    # 2. Process Data
-    try:
-        df = pd.read_excel(EXCEL_FILE)
-        print("Successfully read Excel file. Row count:", len(df))
-        
-        # 3. Generate HTML
-        html_output = generate_clean_html(df)
-        with open(HTML_FILE, 'w', encoding='utf-8') as f:
-            f.write(html_output)
-        print("HTML dashboard generated successfully.")
-        
-    except Exception as e:
-        print(f"Dry run failed: {e}")
+    df = pd.read_excel(EXCEL_FILE)
+    html = get_html_dashboard(df)
+    with open(HTML_FILE, 'w', encoding='utf-8') as f:
+        f.write(html)
 
 if __name__ == "__main__":
-    run_dry_run()
+    run()
