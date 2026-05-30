@@ -25,7 +25,7 @@ def fetch_live_threat_intel():
                     'source': "CISA KEV Catalog"
                 })
     except Exception as e:
-        print(f"Warning: Failed to sync CISA KEV: {e}")
+        print("Warning: Failed to sync CISA KEV")
 
     # 2. BleepingComputer & Cyberwire RSS Feeds (XML Format)
     rss_feeds = {
@@ -47,7 +47,7 @@ def fetch_live_threat_intel():
                         'source': source_name
                     })
         except Exception as e:
-            print(f"Warning: Failed to sync {source_name} RSS: {e}")
+            print(f"Warning: Failed to sync {source_name} RSS")
         
     return intel_database
 
@@ -107,7 +107,7 @@ def run_automation():
     html_file = 'index.html'
     
     if not os.path.exists(excel_file):
-        print("Excel file not found.")
+        print("Error: Excel file not found.")
         return
 
     try:
@@ -137,17 +137,15 @@ def run_automation():
             if status == "⚠️ ALERT":
                 alert_count += 1
             
-            # Formatted using standard concatenation to avoid string literal collisions
             table_rows += "<tr>"
             table_rows += f"<td class=\"vendor-name\">{vendor_name}</td>"
             table_rows += f"<td><span class=\"status-badge {css_class}\">{status}</span></td>"
             table_rows += f"<td>{details}</td>"
             table_rows += f"<td><span class=\"risk-badge risk-{inherent}\">{inherent.upper()}</span></td>"
-            table_rows += f"<td>{new_risk}</td>"
+            table_rows += f"<td>{residual}</td>"
             table_rows += f"<td style=\"font-weight: 600; color: #555;\">{source}</td>"
             table_rows += "</tr>\n"
         
-        # Base HTML Structure with standard string markers replaced safely
         html_template = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -183,7 +181,6 @@ def run_automation():
         <h1>🛡️ CISO Third-Party Risk & Threat Intelligence Center</h1>
         <p>Enterprise Perimeter Security Operations | Live OSINT Correlated Feed | Last Updated: __TIME__ IST</p>
     </div>
-    
     <div class="metrics-bar">
         <div class="metric-card">
             <div style="font-size: 12px; color: #7f8c8d; text-transform: uppercase;">Total Active Monitored Suppliers</div>
@@ -194,7 +191,6 @@ def run_automation():
             <div class="metric-value" style="color: __COLOR__;">__ALERTS__</div>
         </div>
     </div>
-
     <table>
         <thead>
             <tr>
@@ -213,7 +209,6 @@ def run_automation():
 </body>
 </html>"""
         
-        # Safe structural placement parsing
         html_content = html_template.replace("__TIME__", current_time)
         html_content = html_content.replace("__TOTAL__", str(len(df)))
         html_content = html_content.replace("__ALERTS__", str(alert_count))
@@ -226,9 +221,4 @@ def run_automation():
         with open(log_file, 'a') as f:
             f.write(f"[{current_time}] SUCCESS: Live OSINT scan executed. Found {alert_count} active perimeter threats.\n")
             
-        print("CISO Dashboard successfully updated via live scraping.")
-
-    except Exception as e:
-        with open(log_file, 'a') as f:
-            f.write(f"[{current_time}] FAILED: {str(e)}\n")
-        print(f"
+        print("CISO Dashboard successfully updated
