@@ -8,7 +8,7 @@ def run_automation():
     ist = pytz.timezone('Asia/Kolkata')
     current_time = datetime.now(ist).strftime('%Y-%m-%d %I:%M:%S %p')
     
-    excel_file = 'vendor_list.xlsx'
+    excel_file = 'Vendor_List.xlsx'
     log_file = 'daily_log.txt'
     html_file = 'index.html'
     
