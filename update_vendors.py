@@ -4,12 +4,12 @@ import json
 from datetime import datetime
 import pytz
 
-# --- CONFIG ---
+# --- CORE CONFIG ---
 EXCEL_FILE = 'vendor_list.xlsx'
 OUTPUT_FILE = 'index.html'
 
 def get_live_threats():
-    """Fetches real-time CISA KEV data to cross-reference with your vendors."""
+    """Fetches CISA KEV data."""
     try:
         r = requests.get("https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json", timeout=10)
         return r.json().get('vulnerabilities', [])
@@ -19,11 +19,18 @@ def build_final_app():
     df = pd.read_excel(EXCEL_FILE)
     threats = get_live_threats()
     
-    # Pre-calculate Impact
-    # Cross-reference threat vendors (simplified match)
-    df['Recent Breach'] = df['Vendor Name'].apply(lambda x: next((t['cveID'] for t in threats if x.lower() in t.get('vendorProject', '').lower()), "None Detected"))
+    # Logic: Cross-reference & Update columns
+    def get_breach_data(vendor_name):
+        match = next((t for t in threats if vendor_name.lower() in t.get('vendorProject', '').lower()), None)
+        if match:
+            return "ACTIVE", match.get('shortDescription', 'Unknown Breach'), "CRITICAL"
+        return "CLEAN", "None", df.loc[df['Vendor Name'] == vendor_name, 'Inherent Risk Rating'].values[0]
+
+    # Apply new columns
+    df[['24h Status', 'Nature of Breach', 'New Risk Framework Profile']] = df.apply(
+        lambda row: pd.Series(get_breach_data(row['Vendor Name'])), axis=1
+    )
     
-    # Build JS Data for Drill-Down
     vendors_json = df.to_json(orient='records')
     
     html = f"""<!DOCTYPE html>
@@ -35,30 +42,32 @@ def build_final_app():
         function openDrill(idx) {{
             const v = vendors[idx];
             document.getElementById('mBody').innerHTML = `
-                <p><strong>URL:</strong> ${{v['Web URL']}}</p>
-                <p><strong>Scope/Category:</strong> ${{v['Risk Rationale']}}</p>
-                <p><strong>Trust Center:</strong> ${{v['Security / Trust Center URL']}}</p>
-                <p class='text-red-600 font-bold'>Breach Found: ${{v['Recent Breach']}}</p>`;
+                <p><strong>Vendor:</strong> ${{v['Vendor Name']}}</p>
+                <p><strong>Breach Nature:</strong> ${{v['Nature of Breach']}}</p>
+                <p><strong>New Risk Profile:</strong> ${{v['New Risk Framework Profile']}}</p>`;
             document.getElementById('modal').classList.remove('hidden');
         }}
     </script>
 </head>
 <body class="bg-gray-100 p-8">
     <h1 class="text-3xl font-bold mb-6">CISO TPRM GRC BOARD</h1>
-    <div class="bg-white p-6 rounded shadow mb-6">
-        <h2 class="text-xl font-bold mb-4">Risk Register (Full Data)</h2>
-        <input type="text" onkeyup="this.nextElementSibling.querySelectorAll('tr').forEach(tr => tr.style.display = tr.innerText.toLowerCase().includes(this.value) ? '' : 'none')" placeholder="Search all columns..." class="w-full border p-2 mb-4">
+    <div class="bg-white p-6 rounded shadow">
         <table class="w-full text-left border-collapse">
-            <thead class="bg-gray-200"><tr><th class="p-3">Vendor</th><th class="p-3">Category</th><th class="p-3">Risk</th><th class="p-3">Breach Status</th><th class="p-3">Action</th></tr></thead>
+            <thead class="bg-gray-200"><tr>
+                <th class="p-3">Vendor</th>
+                <th class="p-3">24h Status</th>
+                <th class="p-3">Nature of Breach</th>
+                <th class="p-3">New Risk Profile</th>
+                <th class="p-3">Action</th>
+            </tr></thead>
             <tbody id="regBody">
-                {"".join([f"<tr class='border-b hover:bg-gray-50'><td class='p-3'>{r['Vendor Name']}</td><td class='p-3'>{r['Risk Rationale']}</td><td class='p-3'>{r['Inherent Risk Rating']}</td><td class='p-3 font-bold text-red-600'>{r['Recent Breach']}</td><td class='p-3'><button onclick='openDrill({i})' class='text-blue-600 underline'>Drill Down</button></td></tr>" for i, r in df.iterrows()])}
+                {"".join([f"<tr class='border-b'><td class='p-3'>{r['Vendor Name']}</td><td class='p-3'>{r['24h Status']}</td><td class='p-3'>{r['Nature of Breach']}</td><td class='p-3'>{r['New Risk Framework Profile']}</td><td class='p-3'><button onclick='openDrill({i})' class='text-blue-600'>Details</button></td></tr>" for i, r in df.iterrows()])}
             </tbody>
         </table>
     </div>
-    
     <div id="modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center">
         <div class="bg-white p-8 rounded w-1/2">
-            <h2 class="text-2xl font-bold mb-4">Vendor Details</h2>
+            <h2 class="text-2xl font-bold mb-4">Deep Dive</h2>
             <div id="mBody"></div>
             <button onclick="document.getElementById('modal').classList.add('hidden')" class="mt-4 bg-red-600 text-white px-4 py-2 rounded">Close</button>
         </div>
