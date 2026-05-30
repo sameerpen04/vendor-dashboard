@@ -1,18 +1,28 @@
 
     <!DOCTYPE html>
     <html>
-    <head><title>Registry Dashboard</title></head>
+    <head>
+        <title>Global Supplier Security & Breach Registry</title>
+        <style>
+            body { font-family: sans-serif; margin: 40px; background: #f4f7f6; }
+            table { width: 100%; border-collapse: collapse; background: white; }
+            th, td { padding: 12px; border: 1px solid #ddd; }
+            .drill-down-btn { background: #3182ce; color: white; border: none; padding: 5px 10px; cursor: pointer; }
+        </style>
+    </head>
     <body>
         <h1>Global Supplier Security & Breach Registry</h1>
-        <p>Sync Time: 2026-05-30 07:54:54 PM IST</p>
-        <table border="1">
+        <p>Sync Time: 2026-05-30 19:58:21 IST</p>
+        <table>
             <tr><th>Vendor</th><th>Category</th><th>Action</th></tr>
             
         <tr>
             <td>BUSINESS TRAINING ROMANIA</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "BUSINESS TRAINING ROMANIA"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "BUSINESS TRAINING ROMANIA", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -20,7 +30,9 @@
             <td>WORLD CLASS ROMANIA</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "WORLD CLASS ROMANIA"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "WORLD CLASS ROMANIA", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -28,7 +40,9 @@
             <td>BENEFIT SEVEN SA</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "BENEFIT SEVEN SA"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "BENEFIT SEVEN SA", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -36,7 +50,9 @@
             <td>FEDEX EXPRESS ROMANIA</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "FEDEX EXPRESS ROMANIA"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "FEDEX EXPRESS ROMANIA", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -44,7 +60,9 @@
             <td>SWISS SOLUTIONS</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "SWISS SOLUTIONS"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "SWISS SOLUTIONS", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -52,7 +70,9 @@
             <td>PLUXEE ROMANIA</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "PLUXEE ROMANIA"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "PLUXEE ROMANIA", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -60,7 +80,9 @@
             <td>Skylium Services</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Skylium Services"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Skylium Services", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -68,7 +90,9 @@
             <td>LIVE SOFTWARE (Dinu Seres)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "LIVE SOFTWARE (Dinu Seres)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "LIVE SOFTWARE (Dinu Seres)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -76,7 +100,9 @@
             <td>ISTYLE RETAIL</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "ISTYLE RETAIL"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "ISTYLE RETAIL", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -84,7 +110,9 @@
             <td>Printtech</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Printtech"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Printtech", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -92,7 +120,9 @@
             <td>Ams Human Resources</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Ams Human Resources"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Ams Human Resources", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -100,7 +130,9 @@
             <td>Art Security Romania</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Art Security Romania"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Art Security Romania", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -108,7 +140,9 @@
             <td>DIGI Romania (RCS & RDS)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "DIGI Romania (RCS & RDS)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "DIGI Romania (RCS & RDS)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -116,7 +150,9 @@
             <td>Vodafone Romania</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Vodafone Romania"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Vodafone Romania", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -124,7 +160,9 @@
             <td>Orange Romania</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Orange Romania"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Orange Romania", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -132,7 +170,9 @@
             <td>LRQA (Romania)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "LRQA (Romania)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "LRQA (Romania)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -140,7 +180,9 @@
             <td>Grant Thornton (Romania)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Grant Thornton (Romania)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Grant Thornton (Romania)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -148,7 +190,9 @@
             <td>Ros Contab</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Ros Contab"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Ros Contab", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -156,7 +200,9 @@
             <td>Profile Business Consulting</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Profile Business Consulting"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Profile Business Consulting", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -164,7 +210,9 @@
             <td>United Business Center (Iulius Town)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "United Business Center (Iulius Town)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "United Business Center (Iulius Town)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -172,7 +220,9 @@
             <td>Eta 2U</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Eta 2U"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Eta 2U", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -180,7 +230,9 @@
             <td>CIDP "Tanase V. Iulian"</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "CIDP \"Tanase V. Iulian\""})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "CIDP \"Tanase V. Iulian\"", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -188,7 +240,9 @@
             <td>Alfa Protect</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Alfa Protect"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Alfa Protect", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -196,7 +250,9 @@
             <td>Bookster Experience</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Bookster Experience"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Bookster Experience", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -204,7 +260,9 @@
             <td>Medicis - Health Services</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Medicis - Health Services"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Medicis - Health Services", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -212,7 +270,9 @@
             <td>Allianz Romania</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Allianz Romania"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Allianz Romania", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -220,7 +280,9 @@
             <td>Groupama Romania</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Groupama Romania"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Groupama Romania", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -228,7 +290,9 @@
             <td>O&B Cleaning Romania</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "O&B Cleaning Romania"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "O&B Cleaning Romania", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -236,7 +300,9 @@
             <td>ING Bank N.V. Amsterdam, Bucharest</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "ING Bank N.V. Amsterdam, Bucharest"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "ING Bank N.V. Amsterdam, Bucharest", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -244,7 +310,9 @@
             <td>AIMS TIMISOARA SRL</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "AIMS TIMISOARA SRL"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "AIMS TIMISOARA SRL", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -252,7 +320,9 @@
             <td>BT Bank Romania</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "BT Bank Romania"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "BT Bank Romania", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -260,7 +330,9 @@
             <td>MedLife</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "MedLife"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "MedLife", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -268,7 +340,9 @@
             <td>One Source Solution Romania</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "One Source Solution Romania"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "One Source Solution Romania", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -276,7 +350,9 @@
             <td>Marabo Office</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Marabo Office"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Marabo Office", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -284,7 +360,9 @@
             <td>Nestor Nestor Diculescu Kingston (NNDKP)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Nestor Nestor Diculescu Kingston (NNDKP)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Nestor Nestor Diculescu Kingston (NNDKP)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -292,7 +370,9 @@
             <td>Nestle Romania</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Nestle Romania"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Nestle Romania", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -300,7 +380,9 @@
             <td>ATTRIUS DEVELOPMENTS</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "ATTRIUS DEVELOPMENTS"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "ATTRIUS DEVELOPMENTS", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -308,7 +390,9 @@
             <td>VENDING ZONE</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "VENDING ZONE"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "VENDING ZONE", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -316,7 +400,9 @@
             <td>Dynamic Parcel Distribution (DPD)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Dynamic Parcel Distribution (DPD)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Dynamic Parcel Distribution (DPD)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -324,7 +410,9 @@
             <td>MARA TRANSFER AEROPORT</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "MARA TRANSFER AEROPORT"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "MARA TRANSFER AEROPORT", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -332,7 +420,9 @@
             <td>PANERACONS I&I (Hotel Mercure)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "PANERACONS I&I (Hotel Mercure)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "PANERACONS I&I (Hotel Mercure)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -340,7 +430,9 @@
             <td>Smart Habitation</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Smart Habitation"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Smart Habitation", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -348,7 +440,9 @@
             <td>White Panda</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "White Panda"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "White Panda", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -356,7 +450,9 @@
             <td>UPS Romania</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "UPS Romania"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "UPS Romania", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -364,7 +460,9 @@
             <td>LINEO PRODUCT DEVELOPMENT</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "LINEO PRODUCT DEVELOPMENT"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "LINEO PRODUCT DEVELOPMENT", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -372,7 +470,9 @@
             <td>Altex Romania</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Altex Romania"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Altex Romania", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -380,7 +480,9 @@
             <td>CASA TIMISANA</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "CASA TIMISANA"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "CASA TIMISANA", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -388,7 +490,9 @@
             <td>ASOCIATIA DINAMIC GRUP</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "ASOCIATIA DINAMIC GRUP"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "ASOCIATIA DINAMIC GRUP", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -396,7 +500,9 @@
             <td>ASOCIATIA DERZELAS</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "ASOCIATIA DERZELAS"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "ASOCIATIA DERZELAS", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -404,7 +510,9 @@
             <td>eMAG</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "eMAG"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "eMAG", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -412,7 +520,9 @@
             <td>Mason Hayes & Curran</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Mason Hayes & Curran"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Mason Hayes & Curran", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -420,7 +530,9 @@
             <td>Arthur Cox</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Arthur Cox"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Arthur Cox", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -428,7 +540,9 @@
             <td>Grant Thornton (Ireland)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Grant Thornton (Ireland)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Grant Thornton (Ireland)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -436,7 +550,9 @@
             <td>Tomkins</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Tomkins"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Tomkins", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -444,7 +560,9 @@
             <td>Conley Rose, P.C.</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Conley Rose, P.C."})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Conley Rose, P.C.", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -452,7 +570,9 @@
             <td>Focus Capital Partners</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Focus Capital Partners"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Focus Capital Partners", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -460,7 +580,9 @@
             <td>Harlay Avocats</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Harlay Avocats"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Harlay Avocats", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -468,7 +590,9 @@
             <td>Global Shares (J.P. Morgan)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Global Shares (J.P. Morgan)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Global Shares (J.P. Morgan)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -476,7 +600,9 @@
             <td>Vodafone Ireland</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Vodafone Ireland"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Vodafone Ireland", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -484,7 +610,9 @@
             <td>Starlink (Ireland)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Starlink (Ireland)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Starlink (Ireland)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -492,7 +620,9 @@
             <td>DHL Ireland</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "DHL Ireland"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "DHL Ireland", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -500,7 +630,9 @@
             <td>Microsoft Azure Cloud</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Microsoft Azure Cloud"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Microsoft Azure Cloud", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -508,7 +640,9 @@
             <td>Atlassian</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Atlassian"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Atlassian", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -516,7 +650,9 @@
             <td>Adaptavist UK</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Adaptavist UK"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Adaptavist UK", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -524,7 +660,9 @@
             <td>MongoDB</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "MongoDB"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "MongoDB", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -532,7 +670,9 @@
             <td>Anjay Venture Partners LLC</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Anjay Venture Partners LLC"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Anjay Venture Partners LLC", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -540,7 +680,9 @@
             <td>Apple Store Ireland</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Apple Store Ireland"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Apple Store Ireland", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -548,7 +690,9 @@
             <td>Elverston LLC</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Elverston LLC"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Elverston LLC", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -556,7 +700,9 @@
             <td>Avalara</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Avalara"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Avalara", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -564,7 +710,9 @@
             <td>Dell Technologies Ireland</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Dell Technologies Ireland"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Dell Technologies Ireland", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -572,7 +720,9 @@
             <td>Dennehy's Health & Fitness</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Dennehy's Health & Fitness"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Dennehy's Health & Fitness", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -580,7 +730,9 @@
             <td>Aviva Life & Pensions Ireland</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Aviva Life & Pensions Ireland"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Aviva Life & Pensions Ireland", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -588,7 +740,9 @@
             <td>Laya Healthcare</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Laya Healthcare"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Laya Healthcare", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -596,7 +750,9 @@
             <td>Gerard and Julia O'Herlihy</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Gerard and Julia O'Herlihy"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Gerard and Julia O'Herlihy", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -604,7 +760,9 @@
             <td>Mark Whitaker</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Mark Whitaker"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Mark Whitaker", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -612,7 +770,9 @@
             <td>Hartnett Innovations Limited</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Hartnett Innovations Limited"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Hartnett Innovations Limited", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -620,7 +780,9 @@
             <td>Ibbotson Consulting</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Ibbotson Consulting"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Ibbotson Consulting", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -628,7 +790,9 @@
             <td>Raymond Hegarty</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Raymond Hegarty"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Raymond Hegarty", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -636,7 +800,9 @@
             <td>PuzzleFIT AI</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "PuzzleFIT AI"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "PuzzleFIT AI", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -644,7 +810,9 @@
             <td>Sage People</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Sage People"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Sage People", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -652,7 +820,9 @@
             <td>TD Insights</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "TD Insights"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "TD Insights", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -660,7 +830,9 @@
             <td>Skillsoft</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Skillsoft"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Skillsoft", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -668,7 +840,9 @@
             <td>Super Micro Computer B.V.</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Super Micro Computer B.V."})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Super Micro Computer B.V.", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -676,7 +850,9 @@
             <td>Woodview Meadows</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Woodview Meadows"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Woodview Meadows", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -684,7 +860,9 @@
             <td>Mlamb Ireland</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Mlamb Ireland"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Mlamb Ireland", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -692,7 +870,9 @@
             <td>Orrick</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Orrick"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Orrick", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -700,7 +880,9 @@
             <td>Forrester</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Forrester"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Forrester", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -708,7 +890,9 @@
             <td>Morgan McKinley</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Morgan McKinley"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Morgan McKinley", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -716,7 +900,9 @@
             <td>Visor Limited</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Visor Limited"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Visor Limited", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -724,7 +910,9 @@
             <td>Zoom</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Zoom"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Zoom", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -732,7 +920,9 @@
             <td>Tactix Network S.R.L.</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Tactix Network S.R.L."})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Tactix Network S.R.L.", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -740,7 +930,9 @@
             <td>Testing Experts</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Testing Experts"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Testing Experts", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -748,7 +940,9 @@
             <td>Lansdowne Financial Pty Ltd</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Lansdowne Financial Pty Ltd"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Lansdowne Financial Pty Ltd", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -756,7 +950,9 @@
             <td>Gartner U.K. Limited</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Gartner U.K. Limited"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Gartner U.K. Limited", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -764,7 +960,9 @@
             <td>Magic Beans UK</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Magic Beans UK"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Magic Beans UK", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -772,7 +970,9 @@
             <td>Vodaphone UK</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Vodaphone UK"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Vodaphone UK", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -780,7 +980,9 @@
             <td>Amazon AUS</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Amazon AUS"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Amazon AUS", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -788,7 +990,9 @@
             <td>ADP LLC</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "ADP LLC"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "ADP LLC", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -796,7 +1000,9 @@
             <td>ADT Smart & Secure</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "ADT Smart & Secure"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "ADT Smart & Secure", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -804,7 +1010,9 @@
             <td>Amazon US</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Amazon US"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Amazon US", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -812,7 +1020,9 @@
             <td>Aramark</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Aramark"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Aramark", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -820,7 +1030,9 @@
             <td>Atlantic US</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Atlantic US"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Atlantic US", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -828,7 +1040,9 @@
             <td>AT&T Mobility</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "AT&T Mobility"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "AT&T Mobility", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -836,7 +1050,9 @@
             <td>Comcast (Xfinity)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Comcast (Xfinity)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Comcast (Xfinity)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -844,7 +1060,9 @@
             <td>Miami Dade Water and Sewer</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Miami Dade Water and Sewer"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Miami Dade Water and Sewer", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -852,7 +1070,9 @@
             <td>Fedex</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Fedex"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Fedex", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -860,7 +1080,9 @@
             <td>FPL (Florida Power & Light)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "FPL (Florida Power & Light)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "FPL (Florida Power & Light)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -868,7 +1090,9 @@
             <td>Grant Thornton US</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Grant Thornton US"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Grant Thornton US", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -876,7 +1100,9 @@
             <td>Rammos Holdco Inc.</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Rammos Holdco Inc."})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Rammos Holdco Inc.", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -884,7 +1110,9 @@
             <td>Ronoco Cleaning US</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Ronoco Cleaning US"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Ronoco Cleaning US", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -892,7 +1120,9 @@
             <td>Waste Management (WM)</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Waste Management (WM)"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Waste Management (WM)", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
@@ -900,11 +1130,19 @@
             <td>Walmart</td>
             <td>N/A</td>
             <td>
-                <button onclick='alert({"vendor": "Walmart"})'>View Details</button>
+                <button class='drill-down-btn' onclick='triggerModal({"vendor": "Walmart", "category": "N/A"})'>
+                    Drill Down 👁️
+                </button>
             </td>
         </tr>
         
         </table>
+        
+        <script>
+            function triggerModal(data) {
+                alert("Analyzing details for: " + data.vendor + " (" + data.category + ")");
+            }
+        </script>
     </body>
     </html>
     
