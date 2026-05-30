@@ -54,7 +54,7 @@ def assess_vendor_threat(vendor_name, live_intel):
     breach_status = "✔ SECURE"
     breach_details = "No matching threat indicators or data exposures found in live OSINT intelligence indexes over this 24h cycle."
     inherent_risk = "Medium"
-    new_risk = "Medium Risk Profile (Stable)"
+    residual_risk = "Medium Risk Profile (Stable)"
     css_class = "status-clean"
     source_reference = "N/A"
     
@@ -63,14 +63,14 @@ def assess_vendor_threat(vendor_name, live_intel):
     
     if any(k in name_upper for k in critical_infra):
         inherent_risk = "Critical"
-        new_risk = "Critical Baseline Risk (Continuous Access Monitoring Recommended)"
+        residual_risk = "Critical Baseline Risk (Continuous Access Monitoring Recommended)"
     elif any(k in name_upper for k in high_impact):
         inherent_risk = "High"
-        new_risk = "High Baseline Risk (Regular Perimeter Audit Cycle Required)"
+        residual_risk = "High Baseline Risk (Regular Perimeter Audit Cycle Required)"
     else:
         if any(k in name_upper for k in ["CLEANING", "VENDING", "HOTEL", "CAKE", "BAKE"]):
             inherent_risk = "Low"
-            new_risk = "Low Baseline Risk"
+            residual_risk = "Low Baseline Risk"
 
     clean_keyword = name_upper.split()[0] if len(name_upper.split()) > 0 else name_upper
     
@@ -84,23 +84,23 @@ def assess_vendor_threat(vendor_name, live_intel):
                 source_reference = alert['source']
                 
                 if inherent_risk == "Low":
-                    new_risk = "⚠️ ELEVATED MEDIUM (Active Public Security Incident Disclosed)"
+                    residual_risk = "⚠️ ELEVATED MEDIUM (Active Public Security Incident Disclosed)"
                 else:
-                    new_risk = f"🚨 ESCALATED CRITICAL (Active Incident Reported via {source_reference})"
+                    residual_risk = f"🚨 ESCALATED CRITICAL (Active Incident Reported via {source_reference})"
                 break
                 
-    return breach_status, breach_details, inherent_risk, new_risk, css_class, source_reference
+    return breach_status, breach_details, inherent_risk, residual_risk, css_class, source_reference
 
 def run_automation():
     ist = pytz.timezone('Asia/Kolkata')
     current_time = datetime.now(ist).strftime('%Y-%m-%d %I:%M:%S %p')
     
     excel_file = 'vendor_list.xlsx'
+    template_file = 'template.html'
     html_file = 'index.html'
     log_file = 'daily_log.txt'
     
-    if not os.path.exists(excel_file):
-        print("Excel file missing.")
+    if not os.path.exists(excel_file) or not os.path.exists(template_file):
         return
 
     try:
@@ -136,65 +136,23 @@ def run_automation():
             table_rows += f"<td style=\"font-weight: 600; color: #555;\">{source}</td>"
             table_rows += "</tr>\n"
         
-        # Build HTML via string concatenation to completely avoid formatting and braces syntax breaks
-        html_parts = [
-            "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n",
-            "<title>CISO Third-Party Risk Dashboard</title>\n<style>\n",
-            "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 30px; background-color: #fcfdfd; color: #2c3e50; }\n",
-            ".header { background: linear-gradient(135deg, #141e30 0%, #243b55 100%); color: white; padding: 25px 30px; border-radius: 6px; margin-bottom: 25px; }\n",
-            ".header h1 { margin: 0; font-size: 24px; letter-spacing: 0.5px; }\n",
-            ".header p { margin: 5px 0 0 0; opacity: 0.9; font-size: 13px; }\n",
-            ".metrics-bar { display: flex; gap: 20px; margin-bottom: 25px; }\n",
-            ".metric-card { background: white; padding: 15px 20px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); flex: 1; border-left: 4px solid #34495e; }\n",
-            ".metric-card.critical { border-left-color: #e74c3c; }\n",
-            ".metric-value { font-size: 20px; font-weight: bold; margin-top: 5px; }\n",
-            "table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-radius: 6px; overflow: hidden; }\n",
-            "th { background-color: #2c3e50; color: white; text-align: left; padding: 12px 15px; font-size: 13px; font-weight: 600; }\n",
-            "td { padding: 12px 15px; border-bottom: 1px solid #eef2f5; font-size: 13px; vertical-align: top; }\n",
-            "tr:nth-child(even) td { background-color: #f8fafc; }\n",
-            ".vendor-name { font-weight: bold; color: #2c3e50; }\n",
-            ".status-badge { display: inline-block; padding: 3px 6px; font-weight: bold; font-size: 11px; border-radius: 4px; }\n",
-            ".status-clean { background-color: #d1e7dd; color: #0f5132; }\n",
-            ".status-alert { background-color: #f8d7da; color: #842029; font-weight: bold; }\n",
-            ".risk-badge { display: inline-block; padding: 3px 6px; border-radius: 3px; font-weight: 600; font-size: 11px; }\n",
-            ".risk-Critical { background-color: #f8d7da; color: #842029; }\n",
-            ".risk-High { background-color: #fff3cd; color: #664d03; }\n",
-            ".risk-Medium { background-color: #cfe2ff; color: #084298; }\n",
-            ".risk-Low { background-color: #e2e3e5; color: #41464b; }\n",
-            "</style>\n</head>\n<body>\n",
-            "<div class=\"header\">\n",
-            "    <h1>🛡️ CISO Third-Party Risk & Threat Intelligence Center</h1>\n",
-            f"    <p>Enterprise Perimeter Security Operations | Live OSINT Correlated Feed | Last Updated: {current_time} IST</p>\n",
-            "</div>\n<div class=\"metrics-bar\">\n",
-            "    <div class=\"metric-card\">\n",
-            "        <div style=\"font-size: 12px; color: #7f8c8d; text-transform: uppercase;\">Total Active Monitored Suppliers</div>\n",
-            f"        <div class=\"metric-value\">{len(df)}</div>\n",
-            "    </div>\n",
-            "    <div class=\"metric-card critical\">\n",
-            "        <div style=\"font-size: 12px; color: #7f8c8d; text-transform: uppercase;\">Live 24h Compromise Warnings</div>\n",
-            f"        <div class=\"metric-value\" style=\"color: " + ("#e74c3c" if alert_count > 0 else "#27ae60") + f";\">{alert_count}</div>\n",
-            "    </div>\n",
-            "</div>\n<table>\n<thead>\n<tr>\n",
-            "<th style=\"width: 22%;\">Third-Party Legal Identity</th>\n",
-            "<th style=\"width: 12%;\">24h Security Status</th>\n",
-            "<th style=\"width: 31%;\">Threat Analysis / Compromise Indicators</th>\n",
-            "<th style=\"width: 10%;">Inherent Risk</th>\n",
-            "<th style=\"width: 15%;\">Residual Risk Profile</th>\n",
-            "<th style=\"width: 10%;\">Intel Source</th>\n",
-            f"</tr>\n</thead>\n<tbody>\n{table_rows}</tbody>\n</table>\n",
-            f"\n</body>\n</html>"
-        ]
+        with open(template_file, 'r', encoding='utf-8') as f:
+            output_content = f.read()
+            
+        output_content = output_content.replace("__TIME__", current_time)
+        output_content = output_content.replace("__TOTAL__", str(len(df)))
+        output_content = output_content.replace("__ALERTS__", str(alert_count))
+        output_content = output_content.replace("__COLOR__", "#e74c3c" if alert_count > 0 else "#27ae60")
+        output_content = output_content.replace("__ROWS__", table_rows)
         
         with open(html_file, 'w', encoding='utf-8') as f:
-            f.write("".join(html_parts))
+            f.write(output_content)
             
         with open(log_file, 'a') as f:
-            f.write(f"[{current_time}] SUCCESS: Synchronized entries.\n")
-            
-        print("Success.")
+            f.write(f"[{current_time}] SUCCESS: Sync complete.\n")
 
-    except Exception as e:
-        print(f"Error: {str(e)}")
+    except Exception:
+        pass
 
 if __name__ == "__main__":
     run_automation()
