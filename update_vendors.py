@@ -26,8 +26,8 @@ def build_final_app():
         status = "UNSECURED" if is_breached else "SECURED"
         color = "bg-red-500" if is_breached else "bg-green-500"
         
-        # Source-embedded breach description
-        nature = f"Source (CISA KEV): {history[0]['shortDescription']}" if is_breached else "No security breaches or unauthorized disclosures reported within the last 24-hour cycle. System perimeters are stable."
+        # Breach Details with Source and Timestamp
+        nature = f"Source (CISA KEV): {history[0]['shortDescription']} | Reported: {history[0]['dateAdded']}" if is_breached else "No security breaches or unauthorized disclosures reported within the last 24-hour cycle. System perimeters are stable."
         
         impact = f"Potential compromise of {row['Risk Rationale']}. Immediate investigation required." if is_breached else "Stable environment."
         
@@ -35,8 +35,20 @@ def build_final_app():
 
     df[['24h Status', 'StatusColor', 'Nature of Breach', 'Inherent Risk', 'New Risk Profile', 'Breach Impact', 'History']] = df.apply(analyze_vendor, axis=1)
     
+    vendors_json = df.to_json(orient='records')
+    
     html = f"""<!DOCTYPE html>
-<html><head><script src="https://cdn.tailwindcss.com"></script></head>
+<html><head><script src="https://cdn.tailwindcss.com"></script>
+<script>
+    const vendors = {vendors_json};
+    function showDrillDown(idx) {{
+        const h = JSON.parse(vendors[idx].History);
+        let list = h.map(i => `<li><strong>${{i.dateAdded}}</strong>: ${{i.shortDescription}}</li>`).join('');
+        document.getElementById('modalBody').innerHTML = `<ul>${{list}}</ul>`;
+        document.getElementById('modal').classList.remove('hidden');
+    }}
+</script>
+</head>
 <body class="bg-gray-100 p-8">
 <h1 class="text-3xl font-bold mb-6">CISO TPRM GRC BOARD</h1>
 <div class="bg-white p-6 rounded shadow overflow-x-auto">
@@ -47,10 +59,14 @@ def build_final_app():
         <th class="p-2 text-xs">Breach Impact</th><th class="p-2 text-xs">History</th>
     </tr></thead>
     <tbody>
-        {"".join([f"<tr><td class='p-2 border text-xs'>{r['Vendor Name']}</td><td class='p-2 border text-xs'>{r['Risk Rationale']}</td><td class='p-2 border'><span class='{r['StatusColor']} text-white px-2 py-1 rounded text-xs'>{r['24h Status']}</span></td><td class='p-2 border text-xs'>{r['Nature of Breach']}</td><td class='p-2 border text-xs'>{r['Inherent Risk']}</td><td class='p-2 border text-xs'>{r['New Risk Profile']}</td><td class='p-2 border text-xs'>{r['Breach Impact']}</td><td class='p-2 border'><button onclick='alert({r['History']})' class='text-blue-600 text-xs'>Drill Down</button></td></tr>" for _, r in df.iterrows()])}
+        {"".join([f"<tr><td class='p-2 border text-xs'>{r['Vendor Name']}</td><td class='p-2 border text-xs'>{r['Risk Rationale']}</td><td class='p-2 border'><span class='{r['StatusColor']} text-white px-2 py-1 rounded text-xs'>{r['24h Status']}</span></td><td class='p-2 border text-xs'>{r['Nature of Breach']}</td><td class='p-2 border text-xs'>{r['Inherent Risk']}</td><td class='p-2 border text-xs'>{r['New Risk Profile']}</td><td class='p-2 border text-xs'>{r['Breach Impact']}</td><td class='p-2 border'><button onclick='showDrillDown({i})' class='text-blue-600 text-xs'>View History</button></td></tr>" for i, r in df.iterrows()])}
     </tbody>
 </table>
-</div></body></html>"""
+</div>
+<div id="modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center">
+    <div class="bg-white p-8 rounded shadow-xl w-1/2"><h2 class='font-bold mb-4'>Breach History (3 Years)</h2><div id="modalBody" class='text-sm mb-4'></div><button onclick="document.getElementById('modal').classList.add('hidden')" class='bg-red-500 text-white px-4 py-2 rounded'>Close</button></div>
+</div>
+</body></html>"""
     
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f: f.write(html)
 
