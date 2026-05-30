@@ -2,10 +2,12 @@ name: Daily Vendor List Update
 
 on:
   schedule:
-    # 9:00 AM IST is 3:30 AM UTC. 
-    # We set it slightly earlier (3:30) so it processes right at the hour.
     - cron: '30 3 * * *'
-  workflow_dispatch: # This allows you to also run it manually anytime with a single click
+  workflow_dispatch: 
+
+# This explicitly tells GitHub this runner has permission to write files back to your repo
+permissions:
+  contents: write
 
 jobs:
   build-and-run:
@@ -33,5 +35,5 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add index.html daily_log.txt
-        # Only commit if changes actually occurred to avoid errors
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Automated Morning Sync: $(date)" && git push)
+        # Using [skip ci] prevents the script from accidentally triggering itself in a loop
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Automated Morning Sync [skip ci]" && git push)
