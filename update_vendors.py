@@ -37,6 +37,7 @@ def build_app():
 
     def analyze(row):
         name = row['Vendor Name']
+        # Find all history (RSS + CISA)
         history = [t for t in all_threats if name.lower() in t['name'].lower()]
         
         # 24h Status Check
@@ -46,24 +47,30 @@ def build_app():
         is_unsecured = len(recent) > 0
         status = "UNSECURED" if is_unsecured else "SECURED"
         
-        risk = row['Inherent Risk Rating']
-        risk_color = "bg-red-200" if "High" in str(risk) else ("bg-yellow-200" if "Medium" in str(risk) else "bg-green-200")
+        # Risk color mapping
+        risk = str(row.get('Inherent Risk Rating', 'Medium'))
+        risk_color = "bg-red-200" if "High" in risk else ("bg-yellow-200" if "Medium" in risk else "bg-green-200")
         
         return pd.Series([status, risk_color, json.dumps(history)])
 
     df[['Status', 'RiskColor', 'History']] = df.apply(analyze, axis=1)
     
-    # Construct rows cleanly
+    # 1. Prepare Columns for Table Header
+    all_cols = list(df.columns)
+    display_cols = [c for c in all_cols if c not in ['Status', 'RiskColor', 'History']]
+    
+    # 2. Construct Table Rows Manually to avoid F-string errors
     rows_html = ""
     for i, r in df.iterrows():
-        cells = "".join([f"<td class='p-3 border break-words'>{r[c]}</td>" for c in df.columns if c not in ['Status', 'RiskColor', 'History']])
+        cells = "".join([f"<td class='p-3 border break-words'>{r[c]}</td>" for c in display_cols])
         rows_html += f"""<tr class='text-sm'>
             {cells}
-            <td class='p-3 border font-bold {r['RiskColor']}'>{r['Inherent Risk Rating']}</td>
+            <td class='p-3 border font-bold {r['RiskColor']}'>{r.get('Inherent Risk Rating', 'N/A')}</td>
             <td class='p-3 border'><span class='{'bg-red-500' if r['Status']=='UNSECURED' else 'bg-green-500'} text-white px-2 py-1 rounded'>{r['Status']}</span></td>
             <td class='p-3 border'><button onclick='showHistory({i})' class='bg-purple-600 text-white px-3 py-1 rounded'>View</button></td>
         </tr>"""
 
+    # 3. Construct Final HTML
     html = f"""<!DOCTYPE html>
 <html><head><script src="https://cdn.tailwindcss.com"></script></head>
 <body class="bg-gray-100 p-6">
@@ -73,7 +80,10 @@ def build_app():
     </div>
     <div class="bg-white p-4 shadow overflow-x-auto">
         <table class="w-full border-collapse table-auto">
-            <thead class="bg-gray-200"><tr>{"".join([f"<th class='p-3 border text-left'>{c}</th>" for c in list(df.columns) if c not in ['Status', 'RiskColor', 'History']] + ["<th class='p-3 border'>Risk</th><th class='p-3 border'>Status</th><th class='p-3 border'>Action</th>"])}</tr></thead>
+            <thead class="bg-gray-200"><tr>
+                {"".join([f"<th class='p-3 border text-left'>{c}</th>" for c in display_cols])}
+                <th class='p-3 border'>Risk</th><th class='p-3 border'>Status</th><th class='p-3 border'>Action</th>
+            </tr></thead>
             <tbody>{rows_html}</tbody>
         </table>
     </div>
