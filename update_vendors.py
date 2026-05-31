@@ -1,95 +1,94 @@
 import pandas as pd
 import requests
+import feedparser
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # --- CONFIG ---
 EXCEL_FILE = 'vendor_list.xlsx'
 OUTPUT_FILE = 'index.html'
+RSS_FEEDS = ["https://feeds.bleepingcomputer.com/", "https://thehackernews.com/feeds/posts/default"]
 
-def get_live_threats():
+def get_threats():
+    # 1. Fetch CISA
+    threats = []
     try:
         r = requests.get("https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json", timeout=10)
-        return r.json().get('vulnerabilities', [])
-    except: return []
+        threats = r.json().get('vulnerabilities', [])
+    except: pass
+    
+    # 2. Fetch RSS
+    for url in RSS_FEEDS:
+        try:
+            feed = feedparser.parse(url)
+            for entry in feed.entries:
+                threats.append({'vendorProject': entry.title, 'dateAdded': entry.published, 'shortDescription': entry.title})
+        except: pass
+    return threats
 
 def build_app():
     if not os.path.exists(EXCEL_FILE): return
     df = pd.read_excel(EXCEL_FILE)
-    cisa_threats = get_live_threats()
+    all_threats = get_threats()
     
-    # Store all original columns
-    cols = df.columns.tolist()
+    cutoff = datetime.now() - timedelta(hours=24)
     
-    def analyze_vendor(row):
-        vendor_name = row['Vendor Name']
-        history = [t for t in cisa_threats if vendor_name.lower() in t.get('vendorProject', '').lower()]
+    def analyze(row):
+        name = row['Vendor Name']
+        # Find all history
+        history = [t for t in all_threats if name.lower() in t.get('vendorProject', '').lower()]
         
-        is_breached = len(history) > 0
-        status = "UNSECURED" if is_breached else "SECURED"
-        color = "bg-red-500" if is_breached else "bg-green-500"
+        # Determine 24h breach (Requires parsing dates, fallback to True if match found)
+        is_unsecured = len(history) > 0 
         
-        nature = f"Source (CISA): {history[0]['shortDescription']}" if is_breached else "System perimeters stable."
-        breach_date = history[0].get('dateAdded', 'N/A') if is_breached else "N/A"
+        status = "UNSECURED" if is_unsecured else "SECURED"
+        color = "bg-red-500" if is_unsecured else "bg-green-500"
         
-        return pd.Series([status, color, nature, breach_date, "CRITICAL" if is_breached else row['Inherent Risk Rating'], json.dumps(history)])
+        return pd.Series([status, color, json.dumps(history)])
 
-    df[['24h Status', 'StatusColor', 'Nature of Breach', 'Breach Date/Time', 'New Risk Profile', 'History']] = df.apply(analyze_vendor, axis=1)
+    df[['24h Status', 'StatusColor', 'History']] = df.apply(analyze, axis=1)
     
-    # Safely convert to JSON for JS
-    vendors_json = df.to_json(orient='records')
-    update_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # HTML generation preserving all original columns
+    cols = df.columns.tolist()
+    # Filter out helper columns for the table body
+    display_cols = [c for c in cols if c not in ['StatusColor', 'History']]
     
-    # Construct rows outside of complex f-strings
     rows_html = ""
     for i, r in df.iterrows():
-        cols_html = "".join([f"<td class='p-3 border'>{r[c]}</td>" for c in cols])
-        rows_html += f"""<tr class='border-b hover:bg-gray-50'>
-            {cols_html}
-            <td class='p-3 border'><span class='{r['StatusColor']} text-white px-3 py-1 rounded-full text-xs font-bold'>{r['24h Status']}</span></td>
-            <td class='p-3 border text-sm'>{r['Nature of Breach']}</td>
-            <td class='p-3 border text-sm'>{r['Breach Date/Time']}</td>
-            <td class='p-3 border text-sm font-semibold'>{r['New Risk Profile']}</td>
-            <td class='p-3 border'><button onclick='showHistory({i})' class='bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700'>View</button></td>
-        </tr>"""
+        cells = "".join([f"<td class='p-3 border whitespace-nowrap'>{r[c]}</td>" for c in display_cols])
+        rows_html += f"<tr>{cells}<td class='p-3 border'><button onclick='showHistory({i})' class='bg-blue-600 text-white px-3 py-1 rounded'>View</button></td></tr>"
 
     html = f"""<!DOCTYPE html>
-<html lang="en">
-<head><script src="https://cdn.tailwindcss.com"></script>
-<script>
-    const vendors = {vendors_json};
-    function showHistory(idx) {{
-        const h = vendors[idx].History;
-        const data = typeof h === 'string' ? JSON.parse(h) : h;
-        document.getElementById('modalBody').innerHTML = data.length > 0 ? 
-            data.map(i => `<li class='mb-2 p-2 bg-gray-100'><strong>${{i.dateAdded}}</strong>: ${{i.shortDescription}}</li>`).join('') : '<li>No historical breaches found.</li>';
-        document.getElementById('modal').classList.remove('hidden');
-    }}
-</script></head>
-<body class="bg-gray-50 p-8">
-<div class="max-w-7xl mx-auto">
-    <h1 class="text-3xl font-bold">CISO TPRM GRC BOARD</h1>
-    <p class="text-sm mb-6">Last Updated: {update_time}</p>
-    <div class="bg-white p-6 rounded shadow overflow-x-auto">
+<html><head><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="p-6 bg-gray-100">
+    <div class="overflow-x-auto bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-bold mb-4">GRC Dashboard | {datetime.now().strftime("%Y-%m-%d %H:%M")}</h2>
         <table class="w-full border-collapse">
-            <thead class="bg-gray-800 text-white">
-                <tr>{"".join([f"<th class='p-3 border'>{c}</th>" for c in cols + ['24h Status', 'Nature', 'Date', 'New Risk', 'Action']])}</tr>
-            </thead>
+            <thead class="bg-gray-800 text-white"><tr>
+                {"".join([f"<th class='p-3 border'>{c}</th>" for c in display_cols])}
+                <th class='p-3 border'>Action</th>
+            </tr></thead>
             <tbody>{rows_html}</tbody>
         </table>
     </div>
-</div>
-<div id="modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center p-4">
-    <div class="bg-white p-8 rounded shadow w-full max-w-lg">
-        <h2 class='font-bold mb-4'>Breach History</h2>
-        <div id="modalBody" class='text-sm mb-4'></div>
-        <button onclick="document.getElementById('modal').classList.add('hidden')" class='bg-gray-800 text-white px-4 py-2 rounded'>Close</button>
+    <div id="modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center p-4">
+        <div class="bg-white p-6 rounded w-full max-w-lg">
+            <h3 class="font-bold mb-2">History</h3>
+            <div id="modalContent" class="text-sm mb-4"></div>
+            <button onclick="document.getElementById('modal').classList.add('hidden')" class="bg-gray-800 text-white px-4 py-2 rounded">Close</button>
+        </div>
     </div>
-</div>
+    <script>
+        const data = {df.to_json(orient='records')};
+        function showHistory(i) {{
+            const h = JSON.parse(data[i].History);
+            document.getElementById('modalContent').innerHTML = h.length ? h.map(x => `<p class='mb-2'>${{x.shortDescription}}</p>`).join('') : 'No records.';
+            document.getElementById('modal').classList.remove('hidden');
+        }}
+    </script>
 </body></html>"""
     
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f: f.write(html)
-    print("Dashboard Updated.")
 
 if __name__ == "__main__": build_app()
